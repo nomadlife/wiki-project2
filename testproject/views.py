@@ -3,7 +3,7 @@ from django.http import HttpResponseServerError
 from django.template import loader
 from django.template.context import RequestContext
 from django.views.decorators.csrf import requires_csrf_token
-
+from django.shortcuts import render
 
 @requires_csrf_token
 def server_error(request, template_name='500.html', **param_dict):
@@ -27,3 +27,6 @@ def page_not_found(request, template_name='404.html', exception=None):
     )
     response.status_code = 404
     return response
+
+def test1(request):
+    return render(request, 'test1.html', {'title':'Test'})  

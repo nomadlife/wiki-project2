@@ -4,12 +4,14 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.http.response import HttpResponse
 from django.views.static import serve as static_serve
 from wiki.compat import include, url
+from . import views
 
 admin.autodiscover()
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^robots.txt', lambda _: HttpResponse('User-agent: *\nDisallow: /')),
+    url(r'^test1/', views.test1, name='wiki-test1'),
 ]
 
 if settings.DEBUG:

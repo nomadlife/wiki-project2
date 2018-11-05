@@ -1,0 +1,14 @@
+{% extends "wiki/base_site.html" %}
+
+{% block wiki_site_title %} Wiki{% endblock %}
+
+{% block wiki_header_branding %}
+<a class="navbar-brand" href="/">장고 Wiki</a>
+{% endblock %}
+
+{% block wiki_header_navlinks %}
+<ul class="nav navbar-nav">
+  <li class="active"><a href="{% url 'wiki:root' %}">home</a></li>
+  <li class="active"><a href="{% url 'wiki-test1' %}">test1</a></li>
+</ul>
+{% endblock %}
