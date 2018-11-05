@@ -23,6 +23,7 @@ if settings.DEBUG:
 
 urlpatterns += [
     url(r'^notify/', include('django_nyt.urls')),
+    # url(r'', views.myhome, name='myhome'),
     url(r'', include('wiki.urls')),
 ]
 

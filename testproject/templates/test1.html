@@ -1,13 +1,12 @@
 {% extends "base.html" %}
 
-{% block pagetitle %} - Wiki{% endblock %}
+{% block pagetitle %} - test1{% endblock %}
 
 {% block wiki_breadcrumbs %}
-<a class="navbar-brand" href="/">Your brand</a><br>
+  {{ breadcrumbs }}
 {% endblock %}
 
 {% block wiki_contents %}
-<ul class="nav navbar-nav">
-  <li class="active"><a href="{% url 'wiki:root' %}">Wiki</a></li>
-</ul>
+
+{{ article }}
 {% endblock %}

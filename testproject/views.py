@@ -28,5 +28,8 @@ def page_not_found(request, template_name='404.html', exception=None):
     response.status_code = 404
     return response
 
+def myhome(request):
+    return render(request, 'base.html', {'title':'HOME'})  
+
 def test1(request):
     return render(request, 'test1.html', {'title':'Test'})  
