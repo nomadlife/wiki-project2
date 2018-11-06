@@ -11,7 +11,7 @@ admin.autodiscover()
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^robots.txt', lambda _: HttpResponse('User-agent: *\nDisallow: /')),
-    url(r'^test1/', views.test1, name='wiki-test1'),
+    url(r'^test1/', views.test1, name='wikitest1'),
 ]
 
 if settings.DEBUG:
@@ -23,8 +23,8 @@ if settings.DEBUG:
 
 urlpatterns += [
     url(r'^notify/', include('django_nyt.urls')),
-    # url(r'', views.myhome, name='myhome'),
-    url(r'', include('wiki.urls')),
+    url(r'', views.myhome, name='myhome'),
+    url(r'^wiki/', include('wiki.urls')),
 ]
 
 handler500 = 'testproject.views.server_error'

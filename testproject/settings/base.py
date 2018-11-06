@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     "wiki.plugins.notifications.apps.NotificationsConfig",
     'wiki.plugins.globalhistory.apps.GlobalHistoryConfig',
     'mptt',
+    'myproject.apps.MyWikiConfig',  # replaces 'wiki.apps.WikiConfig'
 ]
 
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
