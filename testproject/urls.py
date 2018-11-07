@@ -6,6 +6,9 @@ from django.views.static import serve as static_serve
 from wiki.compat import include, url
 from . import views
 from wiki import sites
+from . import sites
+from wiki.views.article import ArticleView
+from django.views.generic.base import View
 
 admin.autodiscover()
 
@@ -24,8 +27,15 @@ if settings.DEBUG:
 
 urlpatterns += [
     url(r'^notify/', include('django_nyt.urls')),
-    url(r'', views.myhome, name='myhome'),
-    url(r'^wiki/', include('wiki.urls')),
+    # url(r'', views.SuperVillainView.as_view()),
+    # url(r'', views.GreetView.as_view()),
+    # url(r'', views.GreetView.as_view()),
+    # url(r'', views.HelloView.as_view()),
+    # url(r'', views.hello_fn),
+    # url(r'', ArticleView.as_view(), name='myhome',kwargs={'path': ''}),
+    # url(r'', ArticleView.as_view(template_name='article.html'), name='myhome',kwargs={'path': ''}),
+    # url(r'', views.WikiListView.as_view(), name='myhome',kwargs={'path': ''}),
+    url(r'', include('wiki.urls')),
 ]
 
 handler500 = 'testproject.views.server_error'

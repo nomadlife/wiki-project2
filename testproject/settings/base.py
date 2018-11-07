@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'sekizai',
     'sorl.thumbnail',
     "django_nyt.apps.DjangoNytConfig",
-    "wiki.apps.WikiConfig",
+    # "wiki.apps.WikiConfig",
     "wiki.plugins.macros.apps.MacrosConfig",
     'wiki.plugins.help.apps.HelpConfig',
     'wiki.plugins.links.apps.LinksConfig',
@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     "wiki.plugins.notifications.apps.NotificationsConfig",
     'wiki.plugins.globalhistory.apps.GlobalHistoryConfig',
     'mptt',
-    # 'testproject.apps.MyWikiConfig',  # replaces 'wiki.apps.WikiConfig'
+    "testproject.apps.MyWikiConfig",
 ]
 
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
