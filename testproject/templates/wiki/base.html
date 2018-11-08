@@ -1,6 +1,12 @@
 {% extends "wiki/base_site.html" %}
+{% load i18n wiki_tags sekizai_tags static %}
 
 {% block wiki_site_title %} Wiki{% endblock %}
+
+<!-- {% addtoblock "css-custom" %}
+<link rel="stylesheet" href="{% static 'wiki/bootstrap/css/main.css' %}">
+{% endaddtoblock %} -->
+
 
 {% block wiki_header_branding %}
 <a class="navbar-brand" href="/">장고 Wiki</a>
@@ -8,7 +14,8 @@
 
 {% block wiki_header_navlinks %}
 <ul class="nav navbar-nav">
-  <li class="active"><a href="{% url 'wiki:root' %}">wiki-home</a></li>
+  <li class="active"><a href="{% url 'wiki:root' %}">home</a></li>
+  <li class="active"><a href="{% url 'wiki:root' %}">recent</a></li>
   <li class="active"><a href="{% url 'wikitest1' %}">test1</a></li>
 </ul>
 {% endblock %}

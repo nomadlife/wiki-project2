@@ -11,6 +11,9 @@ from wiki.decorators import get_article
 
 from django.http import HttpResponse
 
+##
+from wiki.views.mixins import ArticleMixin
+
 @requires_csrf_token
 def server_error(request, template_name='500.html', **param_dict):
     # You need to create a 500.html template.
@@ -58,7 +61,7 @@ def myhome(request):
     return render(request, 'base.html', {'title':'HOME'})  
 
 def test1(request):
-    return render(request, 'test1.html', {'title':'Test'})  
+    return render(request, 'wiki/test1.html', {'title':'Test'})  
 
 
 

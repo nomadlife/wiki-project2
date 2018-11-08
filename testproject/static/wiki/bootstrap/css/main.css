@@ -1,0 +1,9 @@
+body {
+    background: #fafafa;
+    color: #333333;
+    margin-top: 5rem;
+}
+.navbar-custom {
+    background-color: #d3de67;
+    border-color: #d3de67;
+}
