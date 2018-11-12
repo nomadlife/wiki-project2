@@ -11,8 +11,16 @@ body {
 
 .navbar-brand {
     color : #fafafa;
-
 }
+.navbar-brand:hover {
+    color : #fafafa;
+}
+
 .navbar-nav > li > a {
     color : #fafafa;
 }
+.navbar-nav > li >a:hover {
+    /* color: rgb(255, 11, 11); */
+    background-color: #286090;
+    border-color: #204d74;
+  }
