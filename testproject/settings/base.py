@@ -34,7 +34,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions.apps.SessionsConfig',
     'django.contrib.sites.apps.SitesConfig',
     'django.contrib.messages.apps.MessagesConfig',
+    ##
+    # 'django.contrib.staticfiles',
+
     'django.contrib.staticfiles.apps.StaticFilesConfig',
+    ##
+    # 'django.contrib.staticfiles.finders.FileSystemFinder',
+    # 'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    
+
     'django.contrib.admin.apps.AdminConfig',
     'django.contrib.admindocs.apps.AdminDocsConfig',
     'sekizai',
@@ -145,6 +153,16 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'testproject/statics'),
+]
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+)
+# STATIC_FINDERS= STATICFILES_FINDERS
+
 MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media')
 MEDIA_URL = '/media/'
 

@@ -1,0 +1,18 @@
+body {
+    background: #fafafa;
+    color: #333333;
+    margin-top: 5rem;
+}
+.navbar-custom {
+    background-color: #5f81a1;
+    border-color: #5f81a1;
+    color : #fafafa;
+}
+
+.navbar-brand {
+    color : #fafafa;
+
+}
+.navbar-nav > li > a {
+    color : #fafafa;
+}
