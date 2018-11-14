@@ -61,9 +61,10 @@ def myhome(request):
     return render(request, 'base.html', {'title':'HOME'})  
 
 def test1(request):
-    return render(request, 'wiki/test1.html', {'title':'Test'})  
+    return render(request, 'wiki/test1.html', {'wiki_pagetitle':'pagetitle', 'string':'param test'})  
 
-
+def test2(request):
+    return render(request, 'wiki/test2.html', {'title':'Test'})  
 
 class WikiListView(ArticleView):
     template_name = 'test3.html'

@@ -19,8 +19,12 @@ body {
 .navbar-nav > li > a {
     color : #fafafa;
 }
-.navbar-nav > li >a:hover {
-    /* color: rgb(255, 11, 11); */
+.navbar-nav > li > a:hover {
     background-color: #286090;
     border-color: #204d74;
-  }
+}
+
+.navbar-nav .open >a:focus {
+background-color: #286090;
+border-color: #204d74;
+}

@@ -14,8 +14,10 @@
 
 {% block wiki_header_navlinks %}
 <ul class="nav navbar-nav">
-  <li class="active"><a href="{% url 'wiki:root' %}">최근변경</a></li>
+  <li class="active"><a href="/_dir/">목록</a></li>
+  <li class="active"><a href="{% url 'wiki:root' %}">최근</a></li>
   <li class="active"><a href="{% url 'wiki:root' %}">토론</a></li>
   <li class="active"><a href="{% url 'wikitest1' %}">test1</a></li>
+  <li class="active"><a href="{% url 'wikitest2' %}">test2</a></li>
 </ul>
 {% endblock %}
