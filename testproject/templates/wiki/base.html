@@ -9,15 +9,25 @@
 
 
 {% block wiki_header_branding %}
-<a class="navbar-brand" href="/">장고 Wiki</a>
+<a class="navbar-brand" href="/">장고위키</a>
 {% endblock %}
 
 {% block wiki_header_navlinks %}
 <ul class="nav navbar-nav">
-  <li class="active"><a href="/_dir/">목록</a></li>
-  <li class="active"><a href="{% url 'wiki:root' %}">최근</a></li>
-  <li class="active"><a href="{% url 'wiki:root' %}">토론</a></li>
-  <li class="active"><a href="{% url 'wikitest1' %}">test1</a></li>
-  <li class="active"><a href="{% url 'wikitest2' %}">test2</a></li>
+  <li class="active"><a href="/_dir/">
+    <span class="fa fa-list"></span>
+    목록</a></li>
+  <li class="active"><a href="{% url 'wiki:root' %}">
+    <span class="fa fa-bolt"></span>
+    최근</a></li>
+  <li class="active"><a href="{% url 'wiki:root' %}">
+    <span class="fa fa-comments-o"></span>
+    토론</a></li>
+  <li class="active"><a href="{% url 'wikitest1' %}">
+    <span class="fa fa-camera"></span>
+    test1</a></li>
+  <li class="active"><a href="{% url 'wikitest2' %}">
+    <span class="fa fa-car"></span>
+    test2</a></li>
 </ul>
 {% endblock %}
