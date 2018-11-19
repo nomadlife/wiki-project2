@@ -1,7 +1,6 @@
 {% load i18n wiki_tags %}
 
 {% with selected_tab as selected %}
-
 <li class="pull-right{% if selected == "settings" %} active{% endif %}">
   {% if not user.is_anonymous %}
   <a href="{% url 'wiki:settings' article_id=article.id path=urlpath.path %}">
