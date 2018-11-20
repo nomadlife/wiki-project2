@@ -13,6 +13,9 @@ from django.http import HttpResponse
 
 ##
 from wiki.views.mixins import ArticleMixin
+from wiki.views.accounts import Login
+from django.utils.translation import gettext as _
+from django.contrib.auth import get_user_model as auth_login
 
 @requires_csrf_token
 def server_error(request, template_name='500.html', **param_dict):
@@ -51,11 +54,25 @@ class GreetView(View):
     def get(self, request, **kwargs):
         name = kwargs.pop("name", self.default_name)
         return HttpResponse(self.greeting.format(name))
-        
+
+class GreetView2(View):
+    greeting = "Hello {}!!!"
+    default_name = "World"
+    def get(self, request, **kwargs):
+        name = kwargs.pop("name", self.default_name)
+        return HttpResponse(self.greeting.format(name))
+
+class GreetView3(View):
+    template_name = 'wiki/test3.html'
+    greeting = "Hello {}!!!"
+    default_name = "World"
+    def get(self, request, **kwargs):
+        name = kwargs.pop("name", self.default_name)
+        return HttpResponse(self.greeting.format(name))
+
 class SuperVillainView(GreetView):
     greeting = "We are the future, {}. Not them. "
     default_name = "my friend"
-
 
 def myhome(request):
     return render(request, 'base.html', {'title':'HOME'})  
@@ -67,16 +84,29 @@ def test2(request):
     return render(request, 'wiki/test2.html', {'title':'Test'})  
 
 class WikiListView(ArticleView):
-    template_name = 'test3.html'
+    # template_name = 'wiki/test3.html'
     # model = Article
     # revision = current_revision
 #     date = created
     # context_object_name = 'posts'
     # ordering = ['-date_posted']
-    @method_decorator(get_article(can_read=True))
-    def dispatch(self, request, article, *args, **kwargs):
-        return super().dispatch(request, article, *args, **kwargs)
+    # @method_decorator(get_article(can_read=True))
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
         kwargs['path'] = ''
         return ArticleMixin.get_context_data(self, **kwargs)
+
+# class MyLoginView(Login):
+#     def form_valid(self, form, *args, **kwargs):
+#         auth_login(self.request, form.get_user())
+#         messages.info(self.request, _("로그인 성공!"))
+#         if self.request.GET.get("next", None):
+#             return redirect(self.request.GET['next'])
+#         if django_settings.LOGIN_REDIRECT_URL:
+#             return redirect(django_settings.LOGIN_REDIRECT_URL)
+#         else:
+#             if not self.referer:
+#                 return redirect("wiki:root")
+#             return redirect(self.referer)

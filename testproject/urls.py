@@ -10,6 +10,9 @@ from . import sites
 from wiki.views.article import ArticleView
 from django.views.generic.base import View
 
+##
+from . import accounts_views
+
 admin.autodiscover()
 
 urlpatterns = [
@@ -28,14 +31,20 @@ if settings.DEBUG:
 
 urlpatterns += [
     url(r'^notify/', include('django_nyt.urls')),
-    # url(r'', views.SuperVillainView.as_view()),
-    # url(r'', views.GreetView.as_view()),
-    # url(r'', views.GreetView.as_view()),
-    # url(r'', views.HelloView.as_view()),
-    # url(r'', views.hello_fn),
-    # url(r'', ArticleView.as_view(), name='myhome',kwargs={'path': ''}),
-    # url(r'', ArticleView.as_view(template_name='article.html'), name='myhome',kwargs={'path': ''}),
-    # url(r'', views.WikiListView.as_view(), name='myhome',kwargs={'path': ''}),
+    url(r'^_test/', views.hello_fn),
+    url(r'^_test1/', views.HelloView.as_view()),
+    url(r'^_test2/', views.SuperVillainView.as_view()),
+    url(r'^_test3/', views.GreetView.as_view()),
+    url(r'^_test4/', views.GreetView2.as_view(),kwargs={'name':'test4'}),
+    url(r'^_test5/', views.GreetView3.as_view(),kwargs={'name':'test5-GreetView3'}),
+    url(r'^_test11/', ArticleView.as_view(), name='myArticleView',kwargs={'path': ''}),
+    url(r'^_test12/', ArticleView.as_view(template_name='wiki/dir.html'), name='myArticleView2',kwargs={'path': ''}),
+    url(r'^_test13/', ArticleView.as_view(template_name='wiki/test3.html'), name='myArticleView3',kwargs={'path': '', 'string':'stirng'}),
+    url(r'^_test21/', views.WikiListView.as_view(), name='myWikiListView',kwargs={'path': ''}),
+    url(r'^_test22/', views.WikiListView.as_view(), name='myWikiListView2',kwargs={'path': ''}),
+    url(r'^_test23/', views.WikiListView.as_view(template_name='wiki/test3.html'), name='myWikiListView3',kwargs={'path': ''}),
+    # url(r'^_accounts/login/$',accounts_views.Login.as_view(),name='login'),
+    # url(r'^_accounts/logout/$',accounts_views.Logout.as_view(),name='logout'),
     url(r'', include('wiki.urls')),
 ]
 

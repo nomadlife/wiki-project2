@@ -173,3 +173,6 @@ MEDIA_URL = '/media/'
 
 WIKI_ANONYMOUS_WRITE = True
 WIKI_ANONYMOUS_CREATE = False
+
+# WIKI_ACCOUNT_HANDLING = False
+# WIKI_SIGNUP_URL = '/your/signup/url'
