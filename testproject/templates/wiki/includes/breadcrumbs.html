@@ -10,15 +10,17 @@
 </ul>
 
 
-
 <div class="pull-left" style="margin-left: 10px;">
-  {% if urlpath.parent %}
+    {% if user.is_authenticated %}
+    {% if urlpath.parent %}
+    {% if user.is_superuser or urlpath.level > 1%}
   <div class="btn-group">
     <a class="btn btn-outline-primary" href="{% url 'wiki:create' path=urlpath.parent.path %}" style="padding: 5px;" title="{% trans "add a new document in this level" %} {{ article.current_revision.title }}">
-      <!-- <span class="fa fa-file"></span> -->
       + 새문서
     </a>
   </div>
+  {% endif %}
+  {% endif %}
   {% endif %}
   <span class="fa fa-angle-right"></span>
 </div>
@@ -26,7 +28,6 @@
 <div class="pull-left" style="margin-left: 10px;">
   <div class="btn-group">
     <a class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#" style="padding: 5px;" title="{% trans "Sub-articles for" %} {{ article.current_revision.title }}">
-      <!-- <span class="fa fa-sitemap"></span> -->
       <span class="fa fa-angle-double-down"></span>
       
       목록
@@ -51,12 +52,15 @@
     </ul>
   </div>
 
+  {% if user.is_authenticated %}
+  {% if urlpath.parent %}
   <div class="btn-group">
     <a class="btn btn-outline-primary" href="{% url 'wiki:create' path=urlpath.path %}" style="padding: 5px;" title="{% trans "Sub-articles for" %} {{ article.current_revision.title }}">
-        <!-- <span class="fa fa-file"></span> -->
-        +새하위문서
+        + 새하위문서
       </a>
     </div>
+    {% endif %}
+    {% endif %}
   </div>
     
 

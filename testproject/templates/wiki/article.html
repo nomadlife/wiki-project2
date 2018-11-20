@@ -19,7 +19,7 @@
             <a href="{% url 'wiki:get' path=urlpath.path %}"><span class="fa fa-bookmark"></span> {{ urlpath.slug }}</a>
             {% endif %}
             {% if article.current_revision.locked %}
-            <span class="fa fa-lock"></span> {% trans "locked" %}
+            <span class="fa fa-lock"></span> 편집제한
             {% endif %}
           </small>
         </h1>
@@ -35,5 +35,5 @@
 {% endblock %}
 
 {% block wiki_footer_prepend %}
-  <p style="margin-bottom: 10px;"><em>{% trans "This article was last modified:" %} {{ article.current_revision.modified }}</em></p>
+  <p style="margin-bottom: 10px;"><em>마지막으로 변경된 시각: {{ article.current_revision.modified }}</em></p>
 {% endblock %}

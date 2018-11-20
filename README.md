@@ -17,10 +17,3 @@ You should be able to immediately run it like this:
 
 The settings come in a package to administer several test scenarios. For simple purposes, simply edit `local.py`.
 
-Login
------
-
-Django admin:
-
-Username: admin
-Password: admin

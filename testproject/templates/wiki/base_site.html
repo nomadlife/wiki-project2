@@ -105,11 +105,15 @@
             {% else %}
             <ul class="nav navbar-nav">
               <li>
-                <a href="{% login_url as wiki_login_url %}{{ wiki_login_url }}">{% trans "로그인" %}</a>
+                <a href="{% login_url as wiki_login_url %}{{ wiki_login_url }}">
+                    <span class="fa fa-user"></span>
+                    로그인 </a>
               </li>
               {% if "ACCOUNT_HANDLING"|wiki_settings %}
               <li>
-                <a href="{% url 'wiki:signup' %}">{% trans "등록" %}</a>
+                <a href="{% url 'wiki:signup' %}">
+                    <span class="fa fa-plus"></span>
+                    등록</a>
               </li>
               {% endif %}
             </ul>
@@ -122,6 +126,8 @@
           </ul>
           {% endblock %}
         </div>
+
+      
       </div>
     </div>
     {% endblock %}

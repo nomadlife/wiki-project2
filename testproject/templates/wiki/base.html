@@ -1,7 +1,7 @@
 {% extends "wiki/base_site.html" %}
 {% load i18n wiki_tags sekizai_tags static %}
 
-{% block wiki_site_title %} Wiki{% endblock %}
+{% block wiki_site_title %}- Wiki{% endblock %}
 
 <!-- {% addtoblock "css" %}
 <link rel="stylesheet" href="{% static 'wiki/main.css' %}">
@@ -16,16 +16,18 @@
 <ul class="nav navbar-nav">
   <li class="active"><a href="/_dir/">
     <span class="fa fa-list"></span>
-    목록</a></li>
+    <span class="hidden-xs">목록</span>
+    </a></li>
   <li class="active"><a href="{% url 'wiki:root' %}">
     <span class="fa fa-bolt"></span>
-    최근</a></li>
+    <span class="hidden-xs">최근</span>
+  </a></li>
   <li class="active"><a href="{% url 'wiki:root' %}">
     <span class="fa fa-comments-o"></span>
     토론</a></li>
   <li class="active"><a href="{% url 'wikitest1' %}">
     <span class="fa fa-camera"></span>
-    test1</a></li>
+    test</a></li>
   <!-- <li class="active"><a href="{% url 'wikitest2' %}">
     <span class="fa fa-car"></span>
     test2</a></li> -->
