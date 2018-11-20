@@ -2,7 +2,7 @@
 {% load wiki_tags i18n sekizai_tags %}
 
 
-{% block wiki_pagetitle %}{% trans "Edit" %}: {{ article.current_revision.title }}{% endblock %}
+{% block wiki_pagetitle %}{% trans "편집" %}: {{ article.current_revision.title }}{% endblock %}
 
 {% block wiki_contents_tab %}
 
@@ -33,20 +33,20 @@
             </button>
             <button class="btn btn-primary" type="submit" name="save" value="1" id="id_save">
               <span class="fa fa-check"></span>
-              {% trans "Save changes" %}
+              {% trans "저장" %}
             </button>
 
             <div class="btn-toolbar pull-right">
               {% if user.is_authenticated and urlpath.path %}
               <a href="{% url 'wiki:move' path=urlpath.path article_id=article.id %}" class="btn btn-warning ">
                 <span class="fa fa-random"></span>
-                {% trans "Move article" %}
+                {% trans "이동" %}
               </a>
               {% endif %}
               {% if article|can_delete:user %}
               <a href="{% url 'wiki:delete' path=urlpath.path article_id=article.id %}" class="btn btn-danger">
                 <span class="fa fa-trash-o"></span>
-                {% trans "Delete article" %}
+                {% trans "삭제" %}
               </a>
               {% endif %}
             </div>
