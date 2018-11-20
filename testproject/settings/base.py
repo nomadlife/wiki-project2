@@ -26,6 +26,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     'nomadlife.pythonanywhere.com',
+    'localhost',
 ]
 
 
