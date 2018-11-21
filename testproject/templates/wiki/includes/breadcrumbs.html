@@ -56,7 +56,6 @@
       하위목록
     </a>
     <ul class="dropdown-menu">
-
       {% for child in children_slice %}
         <li>
           <a href="{% url 'wiki:get' path=child.path %}">
@@ -73,13 +72,11 @@
 
       <li class="divider"></li>
 
-      {% if user.is_authenticated %}
-      {% if urlpath.parent %}
-          <li>
-          <a href="{% url 'wiki:create' path=urlpath.path %}">새문서+</a>
-        </li>
-          {% endif %}
-          {% endif %}
+      {% if urlpath or urlpath.parent %}
+      <li>
+        <a href="{% url 'wiki:create' path=urlpath.path %}">새문서+</a>
+      </li>
+      {% endif %}
       <li>
         <a href="{% url 'wiki:dir' path=urlpath.path %}">목록 보기&raquo;</a>
       </li>
