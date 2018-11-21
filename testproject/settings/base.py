@@ -177,10 +177,11 @@ WIKI_ANONYMOUS_WRITE = True
 WIKI_ANONYMOUS_CREATE = False
 
 # WIKI_ACCOUNT_HANDLING = False
-WIKI_SIGNUP_URL = '/_myaccounts/signup/'
+# ACCOUNT_HANDLING = True
+WIKI_SIGNUP_URL = '/_test1'
 LOGIN_URL = '/_myaccounts/login/'
-LOGOUT_URL = '/_myaccounts/logout/'
+LOGOUT_URL = '/'
 
-# WIKI_SIGNUP_URL = 'mysignup'
-# LOGIN_URL = 'mylogin'
-# LOGOUT_URL = 'mylogout'
+# WIKI_SIGNUP_URL = '/_myaccounts/sign-up/'
+# LOGIN_URL = '/_myaccounts/login/'
+# LOGOUT_URL = '/_myaccounts/logout/'

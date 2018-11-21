@@ -43,10 +43,11 @@ urlpatterns += [
     url(r'^_test21/', views.WikiListView.as_view(), name='myWikiListView',kwargs={'path': ''}),
     url(r'^_test22/', views.WikiListView.as_view(), name='myWikiListView2',kwargs={'path': ''}),
     url(r'^_test23/', views.WikiListView.as_view(template_name='wiki/test3.html'), name='myWikiListView3',kwargs={'path': ''}),
-    url(r'^_myaccounts/login/$',myaccounts.Login.as_view(),name='mylogin'),
-    url(r'^_myaccounts/logout/$',myaccounts.Logout.as_view(),name='mylogout'),
-    url(r'^_myaccounts/sign-up/$',myaccounts.Signup.as_view(),name='mysignup'),
-    url(r'', include('wiki.urls')),
+    url(r'^_accounts/login/$',myaccounts.Login.as_view(),name='mylogin'),
+    url(r'^_accounts/logout/$',myaccounts.Logout.as_view(),name='mylogout'),
+    url(r'^_accounts/sign-up/$',myaccounts.Signup.as_view(),name='mysignup'),
+    url(r'', include('testproject.myurls')),
+    # url(r'', include('wiki.urls')),
 ]
 
 handler500 = 'testproject.views.server_error'

@@ -52,7 +52,7 @@ class Signup(CreateView):
     def get_success_url(self, *args):
         messages.success(
             self.request,
-            _('You are now signed up... and now you can sign in!'))
+            _('등록되었습니다. 로그인 해주세요!'))
         return reverse("wiki:login")
 
 
@@ -70,10 +70,36 @@ class Logout(View):
 
 
 class Login(FormView):
+        # fields['username'].label = "아이디"
 
     form_class = AuthenticationForm
+    # fields = {'username', 'password'}
     template_name = "wiki/accounts/login.html"
+    # username = User.UsernameField(verbose_name= _('id'))
+    # class Meta:
+    #     model = AuthenticationForm
+    #     # fields = {'username':'아이디', 'password':'비밀번호'}
+    #     labels = {
+    #         "username": "아이디",
+    #         "password": "비밀번호",
+    #     }
+    # class Meta:
+    #     form_class = AuthenticationForm
+    #     fields = '__all__'
+    #     field_classes = {'username': UsernameField}
 
+    # def __init__(self, *args, **kwargs):
+    #         super(Login, self).__init__(*args, **kwargs)
+    #         self.fields['username'].label = "아이디"
+
+    def get_context_data(self, **kwargs):
+            context = super(Login, self).get_context_data(**kwargs)
+            context["Login"]=context["form"]
+            return context
+    labels = {
+            "username": "아이디",
+            "password": "비밀번호",
+        }
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_anonymous:
             return redirect('wiki:root')
