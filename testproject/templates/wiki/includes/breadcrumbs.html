@@ -23,7 +23,7 @@
         </a>
         <ul class="dropdown-menu">
           
-          {% for child in urlpath.items %}
+          {% for child in children_slice %}
             <li>
               <a href="{% url 'wiki:get' path=child.path %}">
                 {{ child.article.current_revision.title }}
