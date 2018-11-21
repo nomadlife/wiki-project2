@@ -7,11 +7,11 @@
 {% block wiki_contents_tab %}
 <div class="row">
   <div class="col-lg-8">
-    <p class="lead">{% trans "The following files are available for this article. Copy the markdown tag to directly refer to a file from the article text." %}</p>
+    <p class="lead">{% trans "첨부파일 링크를 문서에 포합시킬려면, 아래 마크다운 태그를 복사해서 본문에 추가해주십시오." %}</p>
     <p> {% blocktrans trimmed %}
-      Complete markdown code syntax: <code>[attachment:id title:"text" size]</code><br>
-      &nbsp;&nbsp;title: Link text replacement for the file name.
-      size: Show file size after the title.
+      마크다운 코드: <code>[attachment:id title:"text" size]</code><br>
+      &nbsp;&nbsp;title: 링크에 나타날 제목입니다.
+      size: 파일크기를 표시합니다.
     {% endblocktrans %} </p>
 
     {% for attachment in attachments %}
@@ -102,7 +102,7 @@
 
         <div id="collapse_add" class="panel-collapse collapse">
           <div class="panel-body">
-            <p>{% trans "You can reuse files from other articles. These files are subject to updates on other articles which may or may not be a good thing." %}</p>
+            <p>{% trans "다른문서의 첨부를 재사용할수도 있습니다. These files are subject to updates on other articles which may or may not be a good thing." %}</p>
             <form method="GET" action="{% url 'wiki:attachments_search' path=urlpath.path article_id=article.id %}" class="wiki-form-block">
               <div class="input-group">
                 {{ search_form.query }}
@@ -141,7 +141,7 @@
             </p>
             {% empty %}
 
-            <p><em>{% trans "Nothing to restore" %}</em></p>
+            <p><em>{% trans "복원할 내용이 없습니다." %}</em></p>
 
             {% endfor %}
 
