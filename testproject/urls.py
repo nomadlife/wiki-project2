@@ -11,7 +11,7 @@ from wiki.views.article import ArticleView
 from django.views.generic.base import View
 
 ##
-from . import accounts_views
+from . import myaccounts
 
 admin.autodiscover()
 
@@ -43,8 +43,9 @@ urlpatterns += [
     url(r'^_test21/', views.WikiListView.as_view(), name='myWikiListView',kwargs={'path': ''}),
     url(r'^_test22/', views.WikiListView.as_view(), name='myWikiListView2',kwargs={'path': ''}),
     url(r'^_test23/', views.WikiListView.as_view(template_name='wiki/test3.html'), name='myWikiListView3',kwargs={'path': ''}),
-    # url(r'^_accounts/login/$',accounts_views.Login.as_view(),name='login'),
-    # url(r'^_accounts/logout/$',accounts_views.Logout.as_view(),name='logout'),
+    url(r'^_myaccounts/login/$',myaccounts.Login.as_view(),name='mylogin'),
+    url(r'^_myaccounts/logout/$',myaccounts.Logout.as_view(),name='mylogout'),
+    url(r'^_myaccounts/sign-up/$',myaccounts.Signup.as_view(),name='mysignup'),
     url(r'', include('wiki.urls')),
 ]
 

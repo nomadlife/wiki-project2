@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 import os
 
 from django.urls import reverse_lazy
+##
+# from wiki.conf import settings
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
@@ -175,4 +177,10 @@ WIKI_ANONYMOUS_WRITE = True
 WIKI_ANONYMOUS_CREATE = False
 
 # WIKI_ACCOUNT_HANDLING = False
-# WIKI_SIGNUP_URL = '/your/signup/url'
+WIKI_SIGNUP_URL = '/_myaccounts/signup/'
+LOGIN_URL = '/_myaccounts/login/'
+LOGOUT_URL = '/_myaccounts/logout/'
+
+# WIKI_SIGNUP_URL = 'mysignup'
+# LOGIN_URL = 'mylogin'
+# LOGOUT_URL = 'mylogout'
