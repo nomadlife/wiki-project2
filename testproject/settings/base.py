@@ -178,9 +178,9 @@ WIKI_ANONYMOUS_CREATE = False
 
 # WIKI_ACCOUNT_HANDLING = False
 # ACCOUNT_HANDLING = True
-WIKI_SIGNUP_URL = '/_test1'
-LOGIN_URL = '/_myaccounts/login/'
-LOGOUT_URL = '/'
+# WIKI_SIGNUP_URL = '/_test1'
+# LOGIN_URL = '/_myaccounts/login/'
+# LOGOUT_URL = '/'
 
 # WIKI_SIGNUP_URL = '/_myaccounts/sign-up/'
 # LOGIN_URL = '/_myaccounts/login/'
