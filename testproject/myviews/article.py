@@ -207,7 +207,7 @@ class Delete(FormView, ArticleMixin):
             self.article.add_revision(revision)
             messages.success(
                 self.request,
-                _('The article "%s" is now marked as deleted! Thanks for keeping the site free from unwanted material!') %
+                _('"%s" 문서가 삭제 표시 되었습니다!') %
                 revision.title)
         return self.get_success_url()
 

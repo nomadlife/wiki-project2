@@ -54,16 +54,17 @@
 
 <div style="clear: both"></div>
 
-<ul class="breadcrumb pull-left"><li>하위문서 :</li></ul>
-  <ul class="list-inline">
+<!-- <ul class="breadcrumb pull-left"><li>하위문서 :</li></ul> -->
+  <ul class="breadcrumb list-inline">
+      <li>하위문서 :</li>
     {% for child in children_slice %}
-      <li class="btn pull-left">
+      <li class="btn">
         <a href="{% url 'wiki:get' path=child.path %}">
           {{ child.article.current_revision.title }}
         </a>
       </li>
       {% empty %}
-      <li class="btn pull-left"><a href="#"><em>{% trans "문서가 없습니다." %}</em></a></li>
+      <li class="btn"><a href="#"><em>{% trans "문서가 없습니다." %}</em></a></li>
     {% endfor %}
     {% if children_slice_more %}
     <li class="btn"><a href="#"><em>{% trans "...and more" %}</em></a></li>
