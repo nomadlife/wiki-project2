@@ -11,7 +11,7 @@ from wiki.views.article import ArticleView
 from django.views.generic.base import View
 
 ##
-from . import myaccounts
+from .my_views import accounts
 
 admin.autodiscover()
 
@@ -19,7 +19,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^robots.txt', lambda _: HttpResponse('User-agent: *\nDisallow: /')),
     url(r'^test1/', views.test1, name='wikitest1'),
-    url(r'^test2/', views.test2, name='wikitest2'),
+    # url(r'^test2/', views.test2, name='wikitest2'),
 ]
 
 if settings.DEBUG:
@@ -43,11 +43,10 @@ urlpatterns += [
     url(r'^_test21/', views.WikiListView.as_view(), name='myWikiListView',kwargs={'path': ''}),
     url(r'^_test22/', views.WikiListView.as_view(), name='myWikiListView2',kwargs={'path': ''}),
     url(r'^_test23/', views.WikiListView.as_view(template_name='wiki/test3.html'), name='myWikiListView3',kwargs={'path': ''}),
-    url(r'^_accounts/login/$',myaccounts.Login.as_view(),name='mylogin'),
-    url(r'^_accounts/logout/$',myaccounts.Logout.as_view(),name='mylogout'),
-    url(r'^_accounts/sign-up/$',myaccounts.Signup.as_view(),name='mysignup'),
+    url(r'^_accounts/login/$',accounts.Login.as_view(),name='login'),
+    url(r'^_accounts/logout/$',accounts.Logout.as_view(),name='logout'),
+    url(r'^_accounts/sign-up/$',accounts.Signup.as_view(),name='signup'),
     url(r'', include('testproject.myurls')),
-    # url(r'', include('wiki.urls')),
 ]
 
 handler500 = 'testproject.views.server_error'

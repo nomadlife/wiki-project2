@@ -70,27 +70,9 @@ class Logout(View):
 
 
 class Login(FormView):
-        # fields['username'].label = "아이디"
 
     form_class = AuthenticationForm
-    # fields = {'username', 'password'}
     template_name = "wiki/accounts/login.html"
-    # username = User.UsernameField(verbose_name= _('id'))
-    # class Meta:
-    #     model = AuthenticationForm
-    #     # fields = {'username':'아이디', 'password':'비밀번호'}
-    #     labels = {
-    #         "username": "아이디",
-    #         "password": "비밀번호",
-    #     }
-    # class Meta:
-    #     form_class = AuthenticationForm
-    #     fields = '__all__'
-    #     field_classes = {'username': UsernameField}
-
-    # def __init__(self, *args, **kwargs):
-    #         super(Login, self).__init__(*args, **kwargs)
-    #         self.fields['username'].label = "아이디"
 
     def get_context_data(self, **kwargs):
             context = super(Login, self).get_context_data(**kwargs)

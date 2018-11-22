@@ -3,10 +3,10 @@ from wiki import sites
 from wiki.compat import include, url
 from wiki.conf import settings
 from wiki.core.plugins import registry
-from wiki.views import accounts, deleted_list
+from wiki.views import deleted_list
 
 ##
-from testproject.myviews import article
+from testproject.my_views import article, accounts
 
 urlpatterns = [
     url(r'^', sites.site.urls),
