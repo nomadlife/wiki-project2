@@ -7,7 +7,7 @@ from wiki.compat import include, url
 from . import views
 from wiki import sites
 from . import sites
-from wiki.views.article import ArticleView
+from .my_views.article import ArticleView
 from django.views.generic.base import View
 
 ##
