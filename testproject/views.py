@@ -40,6 +40,12 @@ def page_not_found(request, template_name='404.html', exception=None):
     response.status_code = 404
     return response
 
+def test1(request):
+    return render(request, 'wiki/test1.html', {'wiki_pagetitle':'pagetitle', 'string':'param test'})  
+
+def test2(request):
+    return render(request, 'wiki/test2.html', {'title':'Test'})  
+    
 def hello_fn(request, name="World"):
     return HttpResponse("Hello {}!".format(name))
 
@@ -77,11 +83,7 @@ class SuperVillainView(GreetView):
 def myhome(request):
     return render(request, 'base.html', {'title':'HOME'})  
 
-def test1(request):
-    return render(request, 'wiki/test1.html', {'wiki_pagetitle':'pagetitle', 'string':'param test'})  
 
-def test2(request):
-    return render(request, 'wiki/test2.html', {'title':'Test'})  
 
 class WikiListView(ArticleView):
     # template_name = 'wiki/test3.html'

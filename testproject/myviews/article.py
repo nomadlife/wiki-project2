@@ -499,7 +499,7 @@ class Move(ArticleMixin, FormView):
             )
 
         else:
-            messages.success(self.request, _('Article successfully moved!'))
+            messages.success(self.request, _('성공적으로 이동되었습니다!'))
         return redirect("wiki:get", path=self.urlpath.path)
 
 
