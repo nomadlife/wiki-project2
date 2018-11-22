@@ -176,12 +176,11 @@ MEDIA_URL = '/media/'
 WIKI_ANONYMOUS_WRITE = True
 WIKI_ANONYMOUS_CREATE = False
 
-# WIKI_ACCOUNT_HANDLING = False
-# ACCOUNT_HANDLING = True
+WIKI_ACCOUNT_HANDLING = False
+WIKI_SIGNUP_URL = '/_accounts/sign-up/'
+LOGIN_URL = '/_accounts/login/'
+LOGOUT_URL = '/_accounts/logout/'
+
 # WIKI_SIGNUP_URL = '/_test1'
 # LOGIN_URL = '/_myaccounts/login/'
 # LOGOUT_URL = '/'
-
-# WIKI_SIGNUP_URL = '/_myaccounts/sign-up/'
-# LOGIN_URL = '/_myaccounts/login/'
-# LOGOUT_URL = '/_myaccounts/logout/'
