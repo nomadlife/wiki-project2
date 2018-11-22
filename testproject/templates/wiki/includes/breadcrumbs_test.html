@@ -1,0 +1,120 @@
+{% load i18n %}
+{% if urlpath %}
+<div id="article-breadcrumbs">
+
+    <div class="pull-right" style="margin-left: 10px;">
+        <form id="wiki-search-form" method="GET" action="{% spaceless %}
+                    {% if article or urlpath %}
+                      {% url 'wiki:search' article_id=article.id path=urlpath.path %}
+                    {% else %}
+                      {% url 'wiki:search' %}
+                    {% endif %}
+                  {% endspaceless %}"
+                  >
+        <div class="input-group">
+          <input type="search" class="form-control search-query" name="q" placeholder="{% spaceless %}
+            {% if article or urlpath %}
+                {% trans "검색" %}
+            {% else %}
+              {% trans "전체검색" %}
+            {% endif %}
+          {% endspaceless %}" />
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="submit">
+              <span class="fa fa-search"></span>
+            </button>
+          </span>
+        </div><!-- /input-group -->
+      </form>
+    </div>
+
+    <div class="pull-left">
+
+    
+<ul class="breadcrumb pull-left">
+  {% for ancestor in urlpath.cached_ancestors %}
+    <li><a href="{% url 'wiki:get' path=ancestor.path %}">{{ ancestor.article.current_revision.title|truncatechars:25 }}</a></li>
+  {% endfor %}
+  {% if not urlpath.parent %}
+  <li class="active">{{ article.current_revision.title|truncatechars:25 }}</li>
+  {% endif %}
+</ul>
+
+
+<div class="pull-left" style="margin-left: 10px;">
+    {% if urlpath.parent %}
+    <div class="btn-group">
+      <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#" style="padding: 5px;" title="{% trans "Sub-articles for" %} {{ article.current_revision.title }}">
+          <span class="fa fa-angle-double-down"></span>
+          {{ article.current_revision.title|truncatechars:25 }}
+        </a>
+        <ul class="dropdown-menu">
+          
+          {% for child in children_slice %}
+          <li>
+            <a href="{% url 'wiki:get' path=child.path %}">
+              {{ child.article.current_revision.title }}
+            </a>
+          </li>
+          {% empty %}
+          <li><a href="#"><em>{% trans "현재 목록이 없습니다." %}</em></a></li>
+          {% endfor %}
+          
+          {% if children_slice_more %}
+          <li><a href="#"><em>{% trans "...and more" %}</em></a></li>
+          {% endif %}
+          <li class="divider"></li>
+          {% if user.is_superuser or urlpath.level > 1 %}
+          <li>
+            <a href="{% url 'wiki:create' path=urlpath.parent.path %}" >새문서+</a>
+          </li>
+          {% endif %}
+          <li>
+            <a href="{% url 'wiki:dir' path=urlpath.parent.path %}">목록 보기&raquo;</a>
+          </li>
+        </ul>
+  </div>
+  {% endif %}
+  <span class="fa fa-angle-right"></span>
+</div>
+
+</div>
+
+<div class="pull-none" style="margin-left: 10px;">
+  <div class="btn-group">
+    <a class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#" style="padding: 5px;" title="{% trans "Sub-articles for" %} {{ article.current_revision.title }}">
+      <span class="fa fa-angle-double-down"></span>
+      하위목록
+    </a>
+    <ul class="dropdown-menu">
+      {% for child in children_slice %}
+        <li>
+          <a href="{% url 'wiki:get' path=child.path %}">
+            {{ child.article.current_revision.title }}
+          </a>
+        </li>
+        {% empty %}
+        <li><a href="#"><em>{% trans "하위 문서가 없습니다." %}</em></a></li>
+      {% endfor %}
+
+      {% if children_slice_more %}
+      <li><a href="#"><em>{% trans "...and more" %}</em></a></li>
+      {% endif %}
+
+      <li class="divider"></li>
+
+      {% if urlpath or urlpath.parent %}
+      <li>
+        <a href="{% url 'wiki:create' path=urlpath.path %}">새문서+</a>
+      </li>
+      {% endif %}
+      <li>
+        <a href="{% url 'wiki:dir' path=urlpath.path %}">목록 보기&raquo;</a>
+      </li>
+    </ul>
+  </div>
+  </div>
+
+<div style="clear: both"></div>
+</div>
+{% endif %}
