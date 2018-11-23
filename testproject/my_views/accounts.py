@@ -65,7 +65,7 @@ class Logout(View):
 
     def get(self, request, *args, **kwargs):
         auth_logout(request)
-        messages.info(request, _("로그아웃 하셨습니다?"))
+        messages.info(request, _("로그아웃 하셨습니다!"))
         return redirect("wiki:root")
 
 

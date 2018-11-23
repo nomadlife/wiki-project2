@@ -5,8 +5,8 @@ from django.http.response import HttpResponse
 from django.views.static import serve as static_serve
 from wiki.compat import include, url
 from . import views
-from wiki import sites
-from . import sites
+from . import mysites as sites
+##
 from .my_views.article import ArticleView
 from django.views.generic.base import View
 
